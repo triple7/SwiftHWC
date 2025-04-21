@@ -16,7 +16,7 @@ class SwiftHWC {
     }
     
     
-    private func getHWC() -> [HWCEntry] {
+    public func getHWC() -> [HWCEntry] {
         let url = Foundation.URL(fileURLWithPath: Bundle.main.path(forResource: "HWC", ofType: "json")!)
                                  let data = try? Data(contentsOf: url)
         
