@@ -1,0 +1,15 @@
+{
+  "originHash" : "c346a5f341b7d6fa580837bcb99097758bbf0c25eefee72382b3c785ab9164c7",
+  "pins" : [
+    {
+      "identity" : "codablecsv",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dehesa/CodableCSV.git",
+      "state" : {
+        "revision" : "99ace2cfdfbc19108b529c021005fb57a460e715",
+        "version" : "0.6.7"
+      }
+    }
+  ],
+  "version" : 3
+}
