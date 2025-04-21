@@ -2,9 +2,12 @@ import Foundation
 import CodableCSV
 
 
-public class SwiftHWC {
+public class SwiftHWC:NSObject {
     let baseUrl = URL(string: "https://www.hpcf.upr.edu/~abel/phl/hwc/data/hwc.csv")!
-    
+
+    public override init() {
+        
+    }
     public func getPlanetEntry(planet: String) -> HWCEntry? {
         let entries = getHWC()
         let result = entries.filter{$0.P_NAME! == planet}
