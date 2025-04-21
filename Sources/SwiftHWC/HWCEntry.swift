@@ -156,7 +156,7 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     var P_HABZONE_OPT: Double?
     var P_HABZONE_CON: Double?
     var P_TYPE_TEMP: String?
-    var P_HABITABLE: Bool?
+    var P_HABITABLE: Int?
     var P_ESI: Double?
     
     // Constellation info
