@@ -151,7 +151,7 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     
     var S_SNOW_LINE: Double?
     var S_ABIO_ZONE: Double?
-    var S_TIDAL_LOCK: Bool?
+    var S_TIDAL_LOCK: Double?
     
     var P_HABZONE_OPT: Bool?
     var P_HABZONE_CON: Bool?
