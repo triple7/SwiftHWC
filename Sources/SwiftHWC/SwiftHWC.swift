@@ -2,7 +2,7 @@ import Foundation
 import CodableCSV
 
 
-class SwiftHWC {
+public class SwiftHWC {
     let baseUrl = URL(string: "https://www.hpcf.upr.edu/~abel/phl/hwc/data/hwc.csv")!
     
     public func getPlanetEntry(planet: String) -> HWCEntry? {
