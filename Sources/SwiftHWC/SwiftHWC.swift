@@ -60,6 +60,7 @@ extension SwiftHWC {
     
     
     private func parseCatalog(from text: String) -> [HWCEntry] {
+        print(text)
         let decoder = CSVDecoder {
           $0.headerStrategy = .firstLine
           $0.delimiters.field = ","
