@@ -10,7 +10,7 @@ import Foundation
 
 public struct HWCEntry: Codable, CustomStringConvertible {
     // Planet parameters
-    var P_NAME:String?
+    public var P_NAME:String?
     var P_DETECTION: String?
     var P_DISCOVERY_FACILITY: String?
     var P_YEAR: Int?
