@@ -55,7 +55,7 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     // Host star identifiers and basic astrometry
     var S_NAME: String?
     var S_NAME_HD: String?
-    var S_NAME_HIP: String?
+    public var S_NAME_HIP: String?
     var S_TYPE: String?
     
     var S_RA: Double?
@@ -131,7 +131,7 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     var P_TEMP_SURF_MIN: Double?
     var P_TEMP_SURF_MAX: Double?
     
-    var P_TYPE: String?
+    public var P_TYPE: String?
     
     // Host‐star additional fields
     var S_TYPE_TEMP: String?
