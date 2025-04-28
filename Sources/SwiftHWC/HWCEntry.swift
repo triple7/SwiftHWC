@@ -137,7 +137,7 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     var S_TYPE_TEMP: String?
     var S_RA_TXT: String?
     var S_DEC_TXT: String?
-    var S_LUMINOSITY: Double?
+    public var S_LUMINOSITY: Double?
     
     // Habitable‐zone boundaries
     public var S_HZ_OPT_MIN: Double?
