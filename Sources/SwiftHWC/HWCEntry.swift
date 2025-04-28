@@ -146,7 +146,7 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     public var S_HZ_CON_MAX: Double?
     public var S_HZ_CON0_MIN: Double?
     public var S_HZ_CON0_MAX: Double?
-    public public var S_HZ_CON1_MIN: Double?
+    public var S_HZ_CON1_MIN: Double?
     public var S_HZ_CON1_MAX: Double?
     
     var S_SNOW_LINE: Double?
