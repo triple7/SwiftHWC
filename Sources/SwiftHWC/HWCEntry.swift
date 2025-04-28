@@ -140,23 +140,23 @@ public struct HWCEntry: Codable, CustomStringConvertible {
     var S_LUMINOSITY: Double?
     
     // Habitable‐zone boundaries
-    var S_HZ_OPT_MIN: Double?
-    var S_HZ_OPT_MAX: Double?
-    var S_HZ_CON_MIN: Double?
-    var S_HZ_CON_MAX: Double?
-    var S_HZ_CON0_MIN: Double?
-    var S_HZ_CON0_MAX: Double?
-    var S_HZ_CON1_MIN: Double?
-    var S_HZ_CON1_MAX: Double?
+    public var S_HZ_OPT_MIN: Double?
+    public var S_HZ_OPT_MAX: Double?
+    public var S_HZ_CON_MIN: Double?
+    public var S_HZ_CON_MAX: Double?
+    public var S_HZ_CON0_MIN: Double?
+    public var S_HZ_CON0_MAX: Double?
+    public public var S_HZ_CON1_MIN: Double?
+    public var S_HZ_CON1_MAX: Double?
     
     var S_SNOW_LINE: Double?
-    var S_ABIO_ZONE: Double?
+    public var S_ABIO_ZONE: Double?
     var S_TIDAL_LOCK: Double?
     
     var P_HABZONE_OPT: Double?
     var P_HABZONE_CON: Double?
     var P_TYPE_TEMP: String?
-    var P_HABITABLE: Int?
+    public var P_HABITABLE: Int?
     var P_ESI: Double?
     
     // Constellation info
