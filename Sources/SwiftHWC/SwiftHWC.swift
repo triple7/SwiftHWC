@@ -8,8 +8,8 @@ public class SwiftHWC:NSObject {
     public override init() {
         
     }
-    public func getPlanetEntry(planet: String) -> HWCEntry? {
-        let entries = getHWC()
+    public func getPlanetEntry(planet: String) async-> HWCEntry? {
+        let entries = await getHWC()
         let result = entries.filter{$0.P_NAME! == planet}
         if result.count == 1 {
             return result.first!
@@ -19,13 +19,16 @@ public class SwiftHWC:NSObject {
     }
     
     
-    public func getHWC() -> [HWCEntry] {
+    public func getHWC() async -> [HWCEntry] {
         let url = Foundation.URL(fileURLWithPath: Bundle.main.path(forResource: "HWC", ofType: "json")!)
-                                 let data = try? Data(contentsOf: url)
-        
-        let decoder = JSONDecoder()
-        let hwc = try? decoder.decode([HWCEntry].self, from: data!)
-        return hwc!
+        if let data = try? Data(contentsOf: url) {
+            let decoder = JSONDecoder()
+            let hwc = try? decoder.decode([HWCEntry].self, from: data)
+            return hwc!
+        } else {
+            // First time downloading
+            return try! await updateHWCatalog()
+        }
     }
     
     private func writeToHWCJson(entries: [HWCEntry], fileName: String = "HWC.json") {
@@ -47,7 +50,7 @@ public class SwiftHWC:NSObject {
 
 extension SwiftHWC {
     
-    public func updateHWCatalog() async throws {
+    public func updateHWCatalog() async throws -> [HWCEntry] {
         let configuration = URLSessionConfiguration.ephemeral
         let session = URLSession(configuration: configuration)
         let (data, _) = try await session.data(from: baseUrl)
@@ -56,6 +59,7 @@ extension SwiftHWC {
         
         // Add to the documents
         writeToHWCJson(entries: entries)
+        return entries
     }
     
     
