@@ -23,10 +23,10 @@ extension SwiftHWC {
 
     public func filterByFirst(
       by predicates: ((HWCEntry) -> Bool)...
-    ) async throws -> HWCEntry? {
-      let list = try await self.getHWC()
+    ) async -> HWCEntry? {
+      let list = try! await self.getHWC()
       return list.first { entry in
-        predicates.contains { predicate in
+          predicates.allSatisfy{ predicate in
           predicate(entry)
         }
       }
