@@ -3,10 +3,10 @@ import CodableCSV
 
 
 public class SwiftHWC:NSObject {
-    let baseUrl = URL(string: "https://www.hpcf.upr.edu/~abel/phl/hwc/data/hwc.csv")!
+    internal let baseUrl = URL(string: "https://www.hpcf.upr.edu/~abel/phl/hwc/data/hwc.csv")!
+    internal var hwcEntries:[HWCEntry]?
 
     public override init() {
-        
     }
     public func getPlanetEntry(planet: String) async-> HWCEntry? {
         let entries = await getHWC()
@@ -20,14 +20,19 @@ public class SwiftHWC:NSObject {
     
     
     public func getHWC() async -> [HWCEntry] {
-        let url = Foundation.URL(fileURLWithPath: Bundle.main.path(forResource: "HWC", ofType: "json")!)
-        if let data = try? Data(contentsOf: url) {
-            let decoder = JSONDecoder()
-            let hwc = try? decoder.decode([HWCEntry].self, from: data)
-            return hwc!
+        if let entries = self.hwcEntries {
+            return entries
         } else {
-            // First time downloading
-            return try! await updateHWCatalog()
+            let url = Foundation.URL(fileURLWithPath: Bundle.main.path(forResource: "HWC", ofType: "json")!)
+            if let data = try? Data(contentsOf: url) {
+                let decoder = JSONDecoder()
+                self.hwcEntries = try! decoder.decode([HWCEntry].self, from: data)
+                return self.hwcEntries!
+            } else {
+                // First time downloading
+                self.hwcEntries = try! await updateHWCatalog()
+                return self.hwcEntries!
+            }
         }
     }
     
