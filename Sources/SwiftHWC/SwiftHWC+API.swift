@@ -7,21 +7,21 @@
 
 extension SwiftHWC {
     
-    func filterByAll(by predicates: ((HWCEntry) -> Bool)...
+    public func filterByAll(by predicates: ((HWCEntry) -> Bool)...
     ) async -> [HWCEntry] {
         return try! await getHWC().filter { entry in
             predicates.allSatisfy { $0(entry) }
         }
     }
 
-    func filterByAny(by predicates: ((HWCEntry) -> Bool)...
+    public func filterByAny(by predicates: ((HWCEntry) -> Bool)...
     ) async -> [HWCEntry] {
         return try! await self.getHWC().filter { entry in
             predicates.contains{ $0(entry) }
         }
     }
 
-    func filterByFirst(
+    public func filterByFirst(
       by predicates: ((HWCEntry) -> Bool)...
     ) async throws -> HWCEntry? {
       let list = try await self.getHWC()
